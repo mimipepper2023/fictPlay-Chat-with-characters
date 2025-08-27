@@ -25,6 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("APIs saved.");
   });
 
+  // Bulk JSON helpers
+  const bulk = document.getElementById("apis-bulk");
+  const parseBtn = document.getElementById("parse-apis");
+  const exportBtn = document.getElementById("export-apis");
+  parseBtn?.addEventListener("click", () => {
+    try {
+      const obj = JSON.parse(bulk.value || "{}");
+      if (obj.supabaseUrl) sbUrl.value = obj.supabaseUrl;
+      if (obj.supabaseKey) sbKey.value = obj.supabaseKey;
+      if (obj.openaiKey) openai.value = obj.openaiKey;
+      alert("Parsed into fields.");
+    } catch { alert("Invalid JSON."); }
+  });
+  exportBtn?.addEventListener("click", () => {
+    const current = { supabaseUrl: sbUrl.value.trim(), supabaseKey: sbKey.value.trim(), openaiKey: openai.value.trim() };
+    bulk.value = JSON.stringify(current, null, 2);
+  });
+
   // Instructions
   const instructions = document.getElementById("global-instructions");
   instructions.value = s?.instructions || "";

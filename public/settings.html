@@ -60,6 +60,22 @@
       </label>
       <button id="save-apis">Save APIs</button>
       <p class="muted">Auth changes may require a page reload. We'll try to reinitialize automatically.</p>
+      <details class="card" style="margin-top:12px;">
+        <summary>How to get the keys</summary>
+        <ol>
+          <li><strong>Supabase URL and anon key</strong>: In your Supabase project, go to <em>Project Settings → API</em>. Copy the <em>Project URL</em> and <em>anon public</em> key.</li>
+          <li><strong>OpenAI API key</strong>: Visit your OpenAI dashboard, create an API key, and paste it here. For production, use a server proxy—never expose private keys in client code.</li>
+        </ol>
+      </details>
+      <details class="card" style="margin-top:12px;">
+        <summary>Bulk paste JSON</summary>
+        <p class="muted">Paste a JSON object like: { "supabaseUrl": "...", "supabaseKey": "...", "openaiKey": "..." }</p>
+        <textarea id="apis-bulk" rows="5" placeholder='{"supabaseUrl":"https://...","supabaseKey":"...","openaiKey":"sk-..."}'></textarea>
+        <div style="margin-top:8px; display:flex; gap:8px;">
+          <button id="parse-apis">Parse to fields</button>
+          <button id="export-apis" class="secondary">Export current as JSON</button>
+        </div>
+      </details>
     </section>
 
     <section class="card">
