@@ -10,7 +10,7 @@ const AI = (() => {
   }
 
   async function callGPT(messages, systemPrompt) {
-    const key = (window.FICTPLAY_CONFIG || {}).OPENAI_API_KEY;
+    const key = (window.Settings?.get()?.apis?.openaiKey) || (window.FICTPLAY_CONFIG || {}).OPENAI_API_KEY;
     if (!key) {
       return { role: "bot", content: "[GPT stub] Provide an API key via config.js or implement server proxy." };
     }
@@ -40,10 +40,12 @@ const AI = (() => {
 
   function buildSystemPrompt(bot) {
     const extras = bot.extras ? JSON.stringify(bot.extras) : "{}";
+    const global = (window.Settings?.get()?.instructions) || "";
     return `You are ${bot.name}. Embody the given personality.
 Description: ${bot.description || ""}
 Personality: ${bot.personality || ""}
 Extras: ${extras}
+Global instructions: ${global}
 Stay in-character. Perceive attachments via provided URLs and react naturally.`;
   }
 
