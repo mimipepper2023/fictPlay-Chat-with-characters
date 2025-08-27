@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Characters • FictPlay</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="/scripts/config.js"></script>
+  <script defer src="/scripts/supabaseClient.js"></script>
+  <script defer src="/scripts/dataStore.js"></script>
+  <script defer src="/scripts/guards.js"></script>
+  <script defer src="/scripts/characters.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>FictPlay</h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/characters.html" class="active">Characters</a>
+        <a href="/chat.html">Single Chat</a>
+        <a href="/group.html">Group Chat</a>
+        <a href="/login.html" id="login-link">Login</a>
+        <button id="logout-btn" class="hidden">Logout</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section>
+      <h2>Create character</h2>
+      <form id="bot-form" class="card grid-2">
+        <label>Name
+          <input type="text" id="bot-name" required>
+        </label>
+        <label>Profile picture
+          <input type="file" id="bot-pfp" accept="image/*">
+        </label>
+        <label>Description
+          <textarea id="bot-description" rows="3"></textarea>
+        </label>
+        <label>Personality
+          <textarea id="bot-personality" rows="3" placeholder="Traits, mannerisms, tone..."></textarea>
+        </label>
+        <label>Extras (JSON)
+          <textarea id="bot-extras" rows="3" placeholder="{ &quot;likes&quot;: [ ... ] }"></textarea>
+        </label>
+        <div>
+          <button type="submit">Save character</button>
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Saved characters</h2>
+      <div id="bots-list" class="grid"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">FictPlay • Obscure Journey</div>
+  </footer>
+</body>
+</html>

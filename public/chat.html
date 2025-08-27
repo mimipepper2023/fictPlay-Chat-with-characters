@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat • FictPlay</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.21.0/dist/tf.min.js"></script>
+  <script defer src="/scripts/config.js"></script>
+  <script defer src="/scripts/supabaseClient.js"></script>
+  <script defer src="/scripts/dataStore.js"></script>
+  <script defer src="/scripts/ai.js"></script>
+  <script defer src="/scripts/guards.js"></script>
+  <script defer src="/scripts/chat.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>FictPlay</h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/characters.html">Characters</a>
+        <a href="/chat.html" class="active">Single Chat</a>
+        <a href="/group.html">Group Chat</a>
+        <a href="/login.html" id="login-link">Login</a>
+        <button id="logout-btn" class="hidden">Logout</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container chat-layout">
+    <aside class="sidebar">
+      <h3>Select character</h3>
+      <select id="chat-bot-select"></select>
+    </aside>
+    <section class="chat">
+      <div id="messages" class="messages"></div>
+      <form id="composer" class="composer">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <input type="file" id="attachment" multiple>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">FictPlay • Obscure Journey</div>
+  </footer>
+</body>
+</html>

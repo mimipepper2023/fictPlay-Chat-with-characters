@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FictPlay</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.21.0/dist/tf.min.js"></script>
+  <script defer src="/scripts/config.js"></script>
+  <script defer src="/scripts/supabaseClient.js"></script>
+  <script defer src="/scripts/dataStore.js"></script>
+  <script defer src="/scripts/ai.js"></script>
+  <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/nav.js"></script>
+  <script defer src="/scripts/guards.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>FictPlay</h1>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/characters.html">Characters</a>
+        <a href="/chat.html">Single Chat</a>
+        <a href="/group.html">Group Chat</a>
+        <a href="/login.html" id="login-link">Login</a>
+        <button id="logout-btn" class="hidden">Logout</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <h2>Create. Chat. Play.</h2>
+      <p>Design AI characters and talk 1:1 or in groups. Attach images, videos, links, and more.</p>
+      <div class="cta">
+        <a class="button" href="/characters.html">Create Characters</a>
+        <a class="button secondary" href="/login.html">Sign In</a>
+      </div>
+    </section>
+    <section>
+      <h3>Your Recent Characters</h3>
+      <div id="recent-bots" class="grid"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">FictPlay • Obscure Journey</div>
+  </footer>
+</body>
+</html>
